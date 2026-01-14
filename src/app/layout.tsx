@@ -1,21 +1,24 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { JetBrains_Mono, Instrument_Serif } from "next/font/google";
 import { VibeKanbanProvider } from "./components/VibeKanbanProvider";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-serif",
   subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
-  title: "SaaS Rebrand",
-  description: "Vibe Kanban Demo - SaaS Group Rebrand",
+  title: "saas.group — We Buy Software Companies",
+  description: "The anti-acquisition acquisition company. No consultants. No pivot decks. No founder therapy sessions.",
 };
 
 export default function RootLayout({
@@ -26,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${jetbrainsMono.variable} ${instrumentSerif.variable} antialiased`}
       >
         <VibeKanbanProvider />
         {children}

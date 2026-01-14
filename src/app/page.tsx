@@ -72,6 +72,36 @@ const CloseIcon = () => (
   </svg>
 );
 
+// Process step icons - clean, minimal, geometric
+const ConversationIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2 3H14V11H9L6 14V11H2V3Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="miter"/>
+  </svg>
+);
+
+const DocumentIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4 2H10L12 4V14H4V2Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="miter"/>
+    <path d="M10 2V4H12" stroke="currentColor" strokeWidth="1.5"/>
+    <path d="M6 7H10M6 10H10" stroke="currentColor" strokeWidth="1"/>
+  </svg>
+);
+
+const HandshakeIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1 6L4 4L8 6L12 4L15 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square"/>
+    <path d="M4 4V10L8 12L12 10V4" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="miter"/>
+  </svg>
+);
+
+const TargetIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="8" cy="8" r="6" stroke="currentColor" strokeWidth="1.5"/>
+    <circle cx="8" cy="8" r="2" stroke="currentColor" strokeWidth="1.5"/>
+    <path d="M8 2V4M8 12V14M2 8H4M12 8H14" stroke="currentColor" strokeWidth="1"/>
+  </svg>
+);
+
 // Company logo components (stylized text logos)
 const CompanyLogo = ({ name, className = "" }: { name: string; className?: string }) => {
   const logos: { [key: string]: JSX.Element } = {
@@ -724,18 +754,18 @@ export default function Home() {
 
             <div className="grid md:grid-cols-4 gap-8">
               {[
-                { day: "Day 1", title: "We talk", desc: "A single conversation. No pitch deck required. Just tell us what you built.", icon: "💬" },
-                { day: "Day 14", title: "We decide", desc: "Two weeks later, you have a term sheet or a clear no. No ghosting.", icon: "📋" },
-                { day: "Day 45", title: "We close", desc: "Due diligence that respects your time. We've done this before.", icon: "🤝" },
-                { day: "Day 60", title: "You decide", desc: "Stay involved or walk away. Entirely your call.", icon: "🎯" },
+                { day: "Day 1", title: "We talk", desc: "A single conversation. No pitch deck required. Just tell us what you built.", icon: <ConversationIcon /> },
+                { day: "Day 14", title: "We decide", desc: "Two weeks later, you have a term sheet or a clear no. No ghosting.", icon: <DocumentIcon /> },
+                { day: "Day 45", title: "We close", desc: "Due diligence that respects your time. We've done this before.", icon: <HandshakeIcon /> },
+                { day: "Day 60", title: "You decide", desc: "Stay involved or walk away. Entirely your call.", icon: <TargetIcon /> },
               ].map((step, i) => (
                 <div key={i} className="relative pl-12 md:pl-0 md:pt-20">
                   {/* Timeline dot */}
-                  <div className="absolute left-0 md:left-1/2 top-0 md:-translate-x-1/2 md:top-8 w-8 h-8 bg-[var(--black)] border-2 border-[var(--signal)] flex items-center justify-center text-sm">
+                  <div className="absolute left-0 md:left-1/2 top-0 md:-translate-x-1/2 md:top-8 w-10 h-10 bg-[var(--black)] border border-[var(--signal)] flex items-center justify-center text-[var(--signal)] group-hover:bg-[var(--signal)] group-hover:text-[var(--black)] transition-all">
                     {step.icon}
                   </div>
 
-                  <p className="text-sm text-[var(--signal)] mb-2">{step.day}</p>
+                  <p className="text-sm text-[var(--signal)] mb-2 font-mono">{step.day}</p>
                   <h3 className="text-xl md:text-2xl font-medium mb-3">{step.title}</h3>
                   <p className="font-serif text-[var(--muted)]">{step.desc}</p>
                 </div>

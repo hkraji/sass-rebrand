@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
+const port = process.env.PORT || "3000";
+
 const nextConfig: NextConfig = {
-  /* config options here */
+  distDir: `.next-${port}`,
 };
 
 export default nextConfig;

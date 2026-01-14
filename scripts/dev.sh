@@ -13,6 +13,6 @@ find_available_port() {
   echo 3000  # fallback
 }
 
-PORT=$(find_available_port)
+export PORT=$(find_available_port)
 echo "Starting dev server on port $PORT"
 exec npx next dev -p $PORT

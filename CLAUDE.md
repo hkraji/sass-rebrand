@@ -9,6 +9,7 @@ A Next.js demo site rebranding saas.group to showcase Vibe Kanban's parallel age
 - Next.js 16 (App Router)
 - TypeScript
 - Tailwind CSS
+- vibe-kanban-web-companion (point-and-click component selection)
 
 ## Development
 
